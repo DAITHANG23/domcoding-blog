@@ -1,11 +1,7 @@
 ---
-import Avatar from "@/components/Avatar.astro";
 import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
 import Layout from "@/layouts/Layout.astro";
-import IconGithub from "@/assets/IconGithub.svg";
-import IconLinkedin from "@/assets/IconLinkedin.svg";
-import IconMail from "@/assets/IconMail.svg";
-import IconFacebooke from "@/assets/IconFacebooke.svg";
+import SocialContact from "@/components/SocialContact.astro";
 ---
 
 <Layout title={SITE_TITLE} description={SITE_DESCRIPTION}>
@@ -23,21 +19,14 @@ import IconFacebooke from "@/assets/IconFacebooke.svg";
         company. Here, I share my knowledge and experience about front-end and back-end in web
         development.
       </p>
-      <div>
-        <ul class="text-primary-text mt-4 flex items-center gap-4">
-          <li>
-            <a
-              class="text-primary-text bg-primary p-[5rem] text-[1.5rem]"
-              style="clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)"
-              ><IconGithub /></a
-            >
-          </li>
-          <li><a><IconLinkedin /></a></li>
-          <li><a><IconMail /></a></li>
-          <li><a><IconFacebooke /></a></li>
-        </ul>
-      </div>
+      <div class="pt-4"><SocialContact /></div>
     </div>
-    <div class="w-full"><Avatar /></div>
+    <div class="w-full">
+      <img
+        src="/assets/avatar.png"
+        alt="Thang Nguyen"
+        class="border-primary shadow-primary-glow h-full w-full rounded-lg border-4 object-cover"
+      />
+    </div>
   </div>
 </Layout>
