@@ -1,7 +1,7 @@
 ---
-import Avatar from "@/components/Avatar.astro";
 import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
 import Layout from "@/layouts/Layout.astro";
+import SocialContact from "@/components/SocialContact.astro";
 ---
 
 <Layout title={SITE_TITLE} description={SITE_DESCRIPTION}>
@@ -15,11 +15,18 @@ import Layout from "@/layouts/Layout.astro";
       <h1 class="text-primary mb-4">Thang(Dom) Nguyen</h1>
       <h5>A Full-Stack Engineer</h5>
       <p>
-        The Dom Nguyen's Blog, a software engineer in web development. I have experience about
-        developing for TechFin company. Here, I share my knowledge and experience about front-end
-        and back-end in web development. I hope you find it helpful.
+        A software engineering in web development. I have experience about developing for TechFin
+        company. Here, I share my knowledge and experience about front-end and back-end in web
+        development.
       </p>
+      <div class="pt-4"><SocialContact /></div>
     </div>
-    <div class="w-full"><Avatar /></div>
+    <div class="w-full">
+      <img
+        src="/assets/avatar.png"
+        alt="Thang Nguyen"
+        class="border-primary shadow-primary-glow h-full w-full rounded-lg border-4 object-cover"
+      />
+    </div>
   </div>
 </Layout>

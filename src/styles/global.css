@@ -14,6 +14,13 @@
   --shadow-black: 0 2px 8px rgba(var(--black), 5%);
   --shadow-white: 0 2px 8px rgba(var(--white), 5%);
   --blob-shadow: drop-shadow(0 12px 12px hsla(var(--primary), 100%, 40%, 0.2));
+  --shadow-primary-glow:
+    0 10px 15px -3px var(--tw-shadow-color, var(--primary)),
+    0 4px 6px -4px var(--tw-shadow-color, var(--primary));
+  --tw-shadow-color: var(--primary);
+  --tw-shadow:
+    0 10px 15px -3px var(--tw-shadow-color, rgb(46 164 209)),
+    0 4px 26px -4px var(--tw-shadow-color, rgb(62 153 197 / 10%));
 }
 
 :root,
