@@ -26,6 +26,7 @@ export default defineConfig({
     name: "Red Hat Display",
     cssVariable: "--font-red-hat-display",
     subsets: ["latin"],
+    weights: ["400", "500", "600", "700", "800"]
   }]
   },
   
