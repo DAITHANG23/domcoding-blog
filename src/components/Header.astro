@@ -1,5 +1,5 @@
 ---
-import { SITE_TITLE } from "../consts";
+import { SITE_TITLE } from "../constants";
 import LinkButton from "./LinkButton.astro";
 import IconMoon from "@/assets/IconMoon.svg";
 import IconSearch from "@/assets/IconSearch.svg";
@@ -19,7 +19,9 @@ const isActive = (path: string) => {
 };
 ---
 
-<header class="bg-background m-0 h-auto w-full text-center shadow-black dark:shadow-white">
+<header
+  class="bg-background fixed top-0 z-20 m-0 h-auto w-full text-center shadow-black dark:shadow-white"
+>
   <nav class="mx-auto my-0 flex h-18 w-[100%] items-center justify-between px-4 md:w-[50%]">
     <div class="flex items-center">
       <h5 class="italic"><a class="text-primary-text" href="/">{SITE_TITLE}</a></h5>

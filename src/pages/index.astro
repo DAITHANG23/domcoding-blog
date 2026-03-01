@@ -1,14 +1,15 @@
 ---
-import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
+import { SITE_DESCRIPTION, SITE_TITLE } from "../constants";
 import Layout from "@/layouts/Layout.astro";
 import SocialContact from "@/components/SocialContact.astro";
+// import "@/js/main";
 ---
 
 <Layout title={SITE_TITLE} description={SITE_DESCRIPTION}>
   <div
     class="mx-auto grid grid-cols-1 items-center justify-center gap-4 p-4 sm:grid-cols-2 sm:justify-between lg:gap-[7rem]"
   >
-    <div class="w-full">
+    <div class="about__data w-full">
       <h1 class="text-primary-text mb-4">
         Hello, <span class="text-primary">I’m </span>
       </h1>
@@ -19,14 +20,17 @@ import SocialContact from "@/components/SocialContact.astro";
         company. Here, I share my knowledge and experience about front-end and back-end in web
         development.
       </p>
-      <div class="pt-4"><SocialContact /></div>
+      <div class="pt-4"><SocialContact background /></div>
     </div>
-    <div class="w-full">
+    <div class="about__img w-full">
       <img
         src="/assets/avatar.png"
         alt="Thang Nguyen"
-        class="border-primary shadow-primary-glow h-full w-full rounded-lg border-4 object-cover"
+        style={"filter: drop-shadow(0 12px 12px hsla(var(--hue), 100%, 40%, .2))"}
+        class="border-primary h-full w-full rounded-lg !border !border-4 !border-solid object-cover"
       />
     </div>
   </div>
 </Layout>
+
+<script src="/src/js/main.js"></script>

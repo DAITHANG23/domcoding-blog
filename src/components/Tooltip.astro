@@ -1,0 +1,54 @@
+---
+const { content } = Astro.props;
+---
+
+<div class="group relative inline-block" data-tooltip>
+  <slot />
+
+  <div
+    class="tooltip bg-primary pointer-events-none absolute bottom-full left-1/2 mb-2 -translate-x-1/2 rounded-md px-3 py-1 text-sm whitespace-nowrap text-white opacity-0 transition-all duration-200 group-hover:opacity-100"
+  >
+    {content}
+
+    <!-- Arrow -->
+    <div
+      class="bg-primary absolute top-full left-1/2 h-2 w-2 -translate-x-1/2 -translate-y-1/2 rotate-45"
+    >
+    </div>
+  </div>
+</div>
+
+<script>
+  const tooltips = document.querySelectorAll("[data-tooltip]");
+
+  tooltips.forEach(wrapper => {
+    const tooltip = wrapper.querySelector(".tooltip");
+    let time: ReturnType<typeof setTimeout>;
+
+    wrapper.addEventListener("click", e => {
+      e.stopPropagation();
+
+      document.querySelectorAll(".tooltip").forEach(t => {
+        if (t !== tooltip) {
+          t.classList.remove("opacity-100");
+        }
+      });
+
+      const isOpen = tooltip?.classList.toggle("opacity-100");
+
+      clearTimeout(time);
+
+      if (isOpen) {
+        time = setTimeout(() => {
+          tooltip?.classList.remove("opacity-100");
+        }, 1500);
+      }
+    });
+  });
+
+  document.addEventListener("click", () => {
+    document.querySelectorAll(".tooltip").forEach(t => {
+      t.classList.remove("opacity-100");
+    });
+  });
+</script>

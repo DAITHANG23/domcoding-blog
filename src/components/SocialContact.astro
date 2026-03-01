@@ -1,38 +1,40 @@
 ---
-import IconGithub from "@/assets/IconGithub.svg";
-import IconLinkedin from "@/assets/IconLinkedin.svg";
-import IconMail from "@/assets/IconMail.svg";
-import IconFacebooke from "@/assets/IconFacebooke.svg";
+import { SOCIALS } from "@/constants";
+
+export interface Props {
+  background?: boolean;
+}
+
+const { background = false } = Astro.props;
 ---
 
 <div
-  class="visible mt-4 flex items-center gap-4 opacity-100 transition-all delay-[400ms] duration-[2500ms] ease-[cubic-bezier(0.5,0,0,1)]"
+  class:list={[
+    "visible flex items-center opacity-100 transition-all delay-[400ms] duration-[2500ms] ease-[cubic-bezier(0.5,0,0,1)]",
+    background ? "gap-4" : "gap-1",
+  ]}
 >
-  <a
-    class="text-primary-text bg-primary cursor-pointer p-2 text-center text-[1.5rem] text-white transition-transform duration-300 hover:-translate-y-1"
-    style="clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)"
-    href="https://github.com/DaITHANG23"
-    target="_blank"><IconGithub /></a
-  >
-
-  <a
-    class="text-primary-text bg-primary cursor-pointer p-2 text-center text-[1.5rem] text-white transition-transform duration-300 hover:-translate-y-1"
-    style="clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)"
-    href="https://www.linkedin.com/in/domnguyen236/"
-    target="_blank"><IconLinkedin /></a
-  >
-
-  <a
-    class="text-primary-text bg-primary cursor-pointer p-2 text-center text-[1.5rem] text-white transition-transform duration-300 hover:-translate-y-1"
-    style="clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)"
-    href="mailto:nguyendaithang23061997@gmail.com"
-    target="_blank"><IconMail /></a
-  >
-
-  <a
-    class="text-primary-text bg-primary cursor-pointer p-2 text-center text-[1.5rem] text-white transition-transform duration-300 hover:-translate-y-1"
-    style="clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)"
-    href="https://www.facebook.com/DomNguyen2306"
-    target="_blank"><IconFacebooke /></a
-  >
+  {
+    SOCIALS.map(item => {
+      return (
+        <a
+          class:list={[
+            "text-primary-text text-primary-text cursor-pointer p-2 text-center text-[1.5rem] transition-transform duration-300",
+            background
+              ? "bg-primary text-white hover:-translate-y-1"
+              : "hover:text-primary hover:rotate-[15deg]",
+          ]}
+          style={
+            background
+              ? "clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)"
+              : ""
+          }
+          href={item.link}
+          target="_blank"
+        >
+          <item.icon />
+        </a>
+      );
+    })
+  }
 </div>
